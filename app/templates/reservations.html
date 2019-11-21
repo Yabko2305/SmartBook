@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    	{% for num in mass %}
+	{% if num==comparator %}	
+	<form action="" method="post">
+        <p>
+		{{ form.classroom(size=form.classroom.label.size) }}
+            {{ form.reservationDate(size=form.reservationDate.label.size) }}
+		{{ form.From(size= form.From.label.size) }}
+		{{ form.endreservationDate(size=form.endreservationDate.label.size) }}
+		{{ form.To(size=form.To.label.size) }}<br>
+		<p>{{ form.submit() }}</p>
+        </p>
+    </form>
+    <form>
+	<button type="submit" name="action" value=cancel>Cancel</button>
+    </form>
+	{% else %}
+        <div><p>Classroom num {{ reservs[num].classroom_num }} Reserved form: {{ reservs[num].fromTime.time() }} {{ reservs[num].fromTime.date() }} to: {{ reservs[num].toTime.time() }} {{ reservs[num].toTime.date() }}
+<form>
+    <button type="submit" name="action" value=edit{{ num }}>Edit</button>
+    <button type="submit" name="action" value=delete{{ num }}>Delete</button>
+</form></p></div>
+	{% endif %}	
+        {% endfor %}
+{% endblock %}

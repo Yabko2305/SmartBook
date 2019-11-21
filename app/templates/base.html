@@ -1,0 +1,32 @@
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - SmartBook</title>
+      {% else %}
+      <title>Welcome to SmartBook</title>
+      {% endif %}
+    </head>
+    <body>
+	<nobr>Smartbook: 
+	<a href="{{ url_for('index') }}">Home</a>
+	{% if current_user.is_anonymous %}
+        <a href="{{ url_for('login') }}">Login</a>
+        {% else %}
+        <a href="{{ url_for('my_reservations') }}">My Reservations</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+	<div align='right'>User: {{ current_user.username }}</div>
+        {% endif %}
+	</div>
+	<hr></nobr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>

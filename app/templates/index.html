@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div align='center'>
+	<div><h1>Hi {{ current_user.name }}, would you like to book a classroom?</h1></div>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.classroom.label }}<br>
+            {{ form.classroom(size=12) }}<br>
+	    {% for error in form.classroom.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.reservationDate.label}}<br>
+            {{ form.reservationDate(size=20) }}<br>
+            {% for error in form.reservationDate.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+	<p>
+            {{ form.From.label }}<br>
+            {{ form.From(size=16) }}<br>
+            {% for error in form.From.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+	<p>
+            {{ form.endreservationDate.label }}<br>
+            {{ form.endreservationDate(size=16) }}<br>
+            {% for error in form.endreservationDate.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+	<p>
+            {{ form.To.label }}<br>
+            {{ form.To(size=16) }}<br>
+            {% for error in form.To.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+	<div><p>Available classrooms:</p></div>
+	{% for class in classrooms%}
+	<div><p>Classroom num {{ class.ClassroomNum }}</p></div>
+	{% endfor %}
+</div>
+{% endblock %}

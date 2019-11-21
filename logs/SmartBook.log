@@ -1,0 +1,54 @@
+2019-11-21 23:08:41,871 INFO: App startup [in C:\SmartBook\app\__init__.py:28]
+2019-11-21 23:10:10,713 INFO: App startup [in C:\SmartBook\app\__init__.py:28]
+2019-11-21 23:18:20,255 INFO: App startup [in C:\SmartBook\app\__init__.py:28]
+2019-11-21 23:20:57,036 INFO: App startup [in C:\SmartBook\app\__init__.py:28]
+2019-11-21 23:20:58,653 INFO: App startup [in C:\SmartBook\app\__init__.py:28]
+2019-11-21 23:21:00,126 ERROR: Exception on /index [POST] [in c:\smartbook\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\smartbook\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\smartbook\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\smartbook\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\smartbook\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\smartbook\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\smartbook\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\smartbook\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\SmartBook\app\routes.py", line 40, in index
+    Classroom.query.filter_by(ClassroomNum=form.classroom.data).first().id)
+  File "C:\SmartBook\app\routes.py", line 18, in validate_all
+    returns.append(validateTime(fro, to, startdate, enddate, classroom))
+  File "C:\SmartBook\app\validators.py", line 23, in validateTime
+    return 'This time is already reserved!, closest free time is: '+roomReservations[i+1].toTime
+IndexError: list index out of range
+2019-11-21 23:21:27,140 INFO: App startup [in C:\SmartBook\app\__init__.py:28]
+2019-11-21 23:21:33,080 ERROR: Exception on /index [POST] [in c:\smartbook\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\smartbook\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\smartbook\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\smartbook\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\smartbook\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\smartbook\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\smartbook\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\smartbook\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\SmartBook\app\routes.py", line 40, in index
+    Classroom.query.filter_by(ClassroomNum=form.classroom.data).first().id)
+  File "C:\SmartBook\app\routes.py", line 18, in validate_all
+    returns.append(validateTime(fro, to, startdate, enddate, classroom))
+  File "C:\SmartBook\app\validators.py", line 23, in validateTime
+    return 'This time is already reserved!, closest free time is: '+roomReservations[i].toTime
+TypeError: can only concatenate str (not "datetime.datetime") to str
+2019-11-21 23:23:41,892 INFO: App startup [in C:\SmartBook\app\__init__.py:28]
+2019-11-21 23:26:02,430 INFO: App startup [in C:\SmartBook\app\__init__.py:28]
